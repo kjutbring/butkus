@@ -1,12 +1,17 @@
 package butkus.com.butkus;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,6 +33,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+    case R.id.menu_item_share:
+        shareIntent(quote);
+        return true;
+    default:
+        return super.onOptionsItemSelected(item);
+    }
     }
 
     public void butkusClicked(View view) {
@@ -68,11 +91,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void shareIntent(String quote) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, quote);
-        sendIntent.setType("text/plain");
-        startActivity(sendIntent);
+
+        if (quote == null) {
+            Context context = getApplicationContext();
+            CharSequence text = "Inget att dela!";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        } else {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, quote);
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
+        }
     }
 
     public class DownloadButkusTask extends AsyncTask<String, Void, String> {
