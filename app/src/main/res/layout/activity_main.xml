@@ -4,7 +4,8 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="#ffffd7">
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,11 +18,12 @@
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300px"
         android:text="@string/butkus"
         android:id="@+id/butkusButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="butkusClicked" />
+        android:onClick="butkusClicked"
+        android:background="#af8700" />
 
 </RelativeLayout>
