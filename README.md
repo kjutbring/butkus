@@ -20,6 +20,6 @@ adb install path/to/application.apk
 ```
 
 ### Screenshot
-![alt text](https://cloud.githubusercontent.com/assets/10494787/11794362/42b84ade-a2b1-11e5-9e2d-418653f5b769.png)
+![alt text](https://cloud.githubusercontent.com/assets/10494787/11794590/7303f75a-a2b2-11e5-930f-73169b79b596.png)
 
 
