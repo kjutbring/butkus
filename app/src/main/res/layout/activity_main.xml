@@ -24,6 +24,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="butkusClicked"
-        android:background="#af8700" />
+        android:background="#3F51B5" />
 
 </RelativeLayout>

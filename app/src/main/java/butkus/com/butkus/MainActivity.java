@@ -3,16 +3,9 @@ package butkus.com.butkus;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -35,28 +28,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Button button = (Button) findViewById(R.id.butkusButton);
-        button.setBackgroundColor(Color.parseColor(randomColor()));
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        MenuItem item = menu.findItem(R.id.menu_item_share);
-
-        return true;
     }
 
     public void butkusClicked(View view) {
         quote = getButkus();
 
         TextView quoteTextView = (TextView) findViewById(R.id.quoteTextView);
-        Button button = (Button) findViewById(R.id.butkusButton);
 
         quoteTextView.setTextColor(Color.parseColor(randomColor()));
         quoteTextView.setText(quote);
-        button.setBackgroundColor(Color.parseColor(randomColor()));
     }
 
     public String getButkus() {
